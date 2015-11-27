@@ -1,4 +1,3 @@
-#
 # Class to serve keystone with apache mod_wsgi in place of keystone service
 #
 # Serving keystone from apache is the recommended way to go for production
@@ -88,6 +87,11 @@ class keystone::wsgi::apache (
   $ssl           = true,
   $workers       = 1,
   $ssl_cert      = undef,
+  $ssl_options   = undef,
+  $ssl_verify_client = undef,
+  $ssl_verify_depth = undef,
+  $ssl_protocol = undef,
+  $ssl_cipher = undef,
   $ssl_key       = undef,
   $ssl_chain     = undef,
   $ssl_ca        = undef,
@@ -191,6 +195,11 @@ class keystone::wsgi::apache (
     priority                    => $priority,
     ssl                         => $ssl,
     ssl_cert                    => $ssl_cert,
+    ssl_options                 => $ssl_options,
+    ssl_verify_client           => $ssl_verify_client,
+    ssl_verify_depth            => $ssl_verify_depth,
+    ssl_protocol                => $ssl_protocol,
+    ssl_cipher                  => $ssl_cipher,
     ssl_key                     => $ssl_key,
     ssl_chain                   => $ssl_chain,
     ssl_ca                      => $ssl_ca,
@@ -216,6 +225,7 @@ class keystone::wsgi::apache (
       priority                    => $priority,
       ssl                         => $ssl,
       ssl_cert                    => $ssl_cert,
+      ssl_options                 => $ssl_options,
       ssl_key                     => $ssl_key,
       ssl_chain                   => $ssl_chain,
       ssl_ca                      => $ssl_ca,
